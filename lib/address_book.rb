@@ -1,4 +1,23 @@
 class Contact
+
+  @@all_contacts = []
+
+  def Contact.search (name)
+    @@all_contacts.each do |contact|
+      if contact.name == name
+        return contact
+      end
+    end
+  end
+
+  def Contact.all
+    @@all_contacts
+  end
+
+  def save_to_contact_list
+    @@all_contacts << self
+  end
+
   def initialize (name)
     @contact_name = name
     @digits = []
